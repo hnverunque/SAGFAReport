@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAGFA — Capsule Strategic Management Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #E8A020;
+    --gold-light: #F5C460;
+    --gold-pale: #FFF8ED;
+    --green-dark: #2D6A1F;
+    --green-mid: #4A8C35;
+    --green-light: #7AB648;
+    --green-pale: #EFF7E8;
+    --soil: #5C3D1E;
+    --cream: #FAF7F2;
+    --white: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-mid: #3D3D3D;
+    --ink-light: #6B6B6B;
+    --border: #E2DDD4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,247,242,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; font-size: 1.1rem;
+    color: var(--green-dark);
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-links {
+    display: flex; gap: 0.25rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em;
+    text-decoration: none; color: var(--ink-light);
+    padding: 0.4rem 0.7rem; border-radius: 20px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .nav-links a:hover { background: var(--green-pale); color: var(--green-dark); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1C4A10 0%, #2D6A1F 40%, #3A8024 70%, #4A8C35 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: var(--gold-light);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; padding: 0.4rem 1.2rem; border-radius: 20px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero-logo-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-logo-text {
+    display: flex; align-items: center; gap: 0;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900; font-size: 4rem; line-height: 1;
+  }
+  .logo-sag { color: var(--gold); }
+  .logo-fa { color: var(--green-dark); font-size: 5rem; }
+  .hero-logo-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--ink-light); text-transform: uppercase;
+    text-align: center; margin-top: 0.3rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700; color: white; line-height: 1.2;
+    max-width: 700px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero h1 em { color: var(--gold-light); font-style: normal; }
+
+  .hero-meta {
+    margin-top: 1.5rem;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+  .hero-meta strong { color: rgba(255,255,255,0.9); }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    color: rgba(255,255,255,0.4); font-size: 0.7rem; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+  .hero-scroll::after {
+    content: '↓'; font-size: 1.2rem;
+  }
+
+  .hero-stats {
+    display: flex; gap: 2rem; margin-top: 3rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold-light);
+    display: block;
+  }
+  .hero-stat .lbl {
+    font-size: 0.7rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  /* SECTION WRAPPER */
+  section { padding: 5rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .section-label::before {
+    content: ''; display: inline-block; width: 24px; height: 2px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700; color: var(--green-dark);
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+
+  .section-desc {
+    font-size: 1rem; color: var(--ink-light); max-width: 600px; line-height: 1.7;
+  }
+
+  /* ABOUT / OVERVIEW */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    margin-top: 3rem;
+  }
+
+  .about-card {
+    background: var(--cream); border-radius: 16px; padding: 2rem;
+    border-left: 4px solid var(--green-mid);
+  }
+  .about-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700;
+    color: var(--green-dark); margin-bottom: 1rem;
+  }
+  .about-card p { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.75; }
+
+  .timeline {
+    position: relative; padding-left: 2rem; margin-top: 1.5rem;
+  }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px; background: var(--green-light);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 1.5rem;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -2.35rem; top: 0.25rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--green-mid);
+  }
+  .timeline-item .year {
+    font-family: 'DM Mono', monospace; font-size: 0.75rem;
+    color: var(--gold); font-weight: 500; margin-bottom: 0.2rem;
+  }
+  .timeline-item p { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6; }
+
+  /* CASE REPORTS NAV */
+  .reports-nav {
+    background: var(--green-dark); padding: 2rem;
+  }
+  .reports-nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+  }
+  .rn-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7); font-size: 0.75rem; font-weight: 500;
+    padding: 0.5rem 1.2rem; border-radius: 20px; cursor: pointer;
+    text-decoration: none; transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .rn-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+
+  /* CASE REPORT SECTIONS */
+  .report-section { border-bottom: 1px solid var(--border); }
+  .report-section:nth-child(even) { background: var(--white); }
+  .report-section:nth-child(odd) { background: var(--cream); }
+
+  .report-header {
+    display: flex; align-items: flex-start; gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  .report-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900; line-height: 1;
+    color: var(--border); flex-shrink: 0;
+    min-width: 80px; text-align: center;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem; margin-top: 2rem;
+  }
+
+  .card {
+    background: var(--white); border-radius: 16px; padding: 1.75rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+  .card-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; margin-bottom: 1rem;
+  }
+  .card-icon.green { background: var(--green-pale); }
+  .card-icon.gold { background: #FFF3DC; }
+
+  .card h4 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 1rem; color: var(--ink); margin-bottom: 0.5rem;
+  }
+  .card p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.65; }
+
+  /* VISION/MISSION BOX */
+  .vm-box {
+    background: linear-gradient(135deg, var(--green-dark), #1C4A10);
+    border-radius: 20px; padding: 2.5rem; color: white; margin-top: 2rem;
+  }
+  .vm-box h3 {
+    font-family: 'Playfair Display', serif; font-size: 0.85rem;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--gold-light); margin-bottom: 0.75rem;
+  }
+  .vm-box p { font-size: 1rem; line-height: 1.75; color: rgba(255,255,255,0.9); }
+  .vm-box .mission-list {
+    list-style: none; margin-top: 1rem;
+  }
+  .vm-box .mission-list li {
+    display: flex; gap: 0.75rem; font-size: 0.9rem;
+    color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 0.6rem;
+  }
+  .vm-box .mission-list li::before {
+    content: '→'; color: var(--gold-light); flex-shrink: 0; margin-top: 0.1rem;
+  }
+
+  /* IMPROVED V/M */
+  .improved-vm {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;
+  }
+  .improved-card {
+    border-radius: 16px; padding: 2rem;
+    background: var(--green-pale); border: 1px solid #C5E3AD;
+  }
+  .improved-card.gold-bg {
+    background: #FFF8ED; border-color: #F5D9A0;
+  }
+  .improved-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 0.8rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--green-dark); margin-bottom: 0.75rem;
+  }
+  .improved-card.gold-bg h3 { color: var(--soil); }
+  .improved-card p { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7; font-style: italic; }
+
+  /* MATRIX TABLE */
+  .matrix-table {
+    width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.85rem;
+  }
+  .matrix-table thead th {
+    background: var(--green-dark); color: white; padding: 0.75rem 1rem;
+    text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.05em;
+  }
+  .matrix-table tbody td {
+    padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); color: var(--ink-mid);
+  }
+  .matrix-table tbody tr:hover td { background: var(--green-pale); }
+  .matrix-table .strength { color: var(--green-dark); font-weight: 500; }
+  .matrix-table .weakness { color: #C0392B; font-weight: 500; }
+  .matrix-table .score-cell { font-family: 'DM Mono', monospace; font-size: 0.8rem; }
+
+  .score-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--green-pale); border: 1px solid #B8DFA0;
+    color: var(--green-dark); font-family: 'DM Mono', monospace;
+    font-weight: 600; font-size: 0.9rem; padding: 0.5rem 1.2rem; border-radius: 20px;
+    margin-top: 1rem;
+  }
+
+  /* PORTER'S 5 FORCES */
+  .forces-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem;
+  }
+  .force-card {
+    background: var(--white); border-radius: 14px; padding: 1.5rem;
+    border: 1px solid var(--border); text-align: center;
+  }
+  .force-card.center-force {
+    grid-column: 2; background: var(--green-dark); color: white;
+  }
+  .force-level {
+    display: inline-block; padding: 0.2rem 0.8rem;
+    border-radius: 12px; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem;
+  }
+  .level-low { background: #E8F8E0; color: var(--green-dark); }
+  .level-moderate { background: #FFF3DC; color: var(--soil); }
+  .level-high { background: #FDE8E8; color: #C0392B; }
+  .force-card h4 { font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+  .force-card.center-force h4 { color: white; }
+  .force-card p { font-size: 0.78rem; color: var(--ink-light); line-height: 1.55; }
+  .force-card.center-force p { color: rgba(255,255,255,0.7); }
+
+  /* SWOT */
+  .swot-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border-radius: 16px; overflow: hidden;
+    margin-top: 2rem;
+  }
+  .swot-cell { background: var(--white); padding: 2rem; }
+  .swot-cell h3 {
+    font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+  }
+  .swot-cell ul { list-style: none; }
+  .swot-cell li {
+    font-size: 0.85rem; color: var(--ink-mid); padding: 0.3rem 0;
+    padding-left: 1rem; position: relative; line-height: 1.5;
+  }
+  .swot-cell li::before { content: '•'; position: absolute; left: 0; }
+  .s-cell h3 { color: var(--green-dark); }
+  .s-cell li::before { color: var(--green-mid); }
+  .w-cell h3 { color: #C0392B; }
+  .w-cell li::before { color: #E57373; }
+  .o-cell h3 { color: #1565C0; }
+  .o-cell li::before { color: #42A5F5; }
+  .t-cell h3 { color: var(--soil); }
+  .t-cell li::before { color: var(--gold); }
+
+  /* BCG */
+  .bcg-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border); border-radius: 16px; overflow: hidden;
+    margin-top: 2rem; max-width: 600px;
+  }
+  .bcg-cell { background: var(--white); padding: 1.75rem; }
+  .bcg-cell h4 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+  .bcg-cell .bcg-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .bcg-cell p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.55; }
+  .star-cell { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+  .cash-cell { background: linear-gradient(135deg, #FFF8E1, #FFECB3); }
+  .qm-cell { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+  .dog-cell { background: var(--cream); }
+
+  /* STRATEGY CARDS */
+  .strategy-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem; margin-top: 2rem;
+  }
+  .strategy-card {
+    border-radius: 14px; padding: 1.75rem;
+    background: var(--white); border: 1px solid var(--border);
+  }
+  .strategy-card .tag {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--green-mid); background: var(--green-pale);
+    padding: 0.25rem 0.7rem; border-radius: 10px; display: inline-block; margin-bottom: 0.75rem;
+  }
+  .strategy-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.4rem; }
+  .strategy-card p { font-size: 0.82rem; color: var(--ink-light); line-height: 1.6; }
+
+  /* BALANCED SCORECARD */
+  .bsc-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem;
+  }
+  .bsc-card {
+    border-radius: 14px; padding: 1.75rem; border: 1px solid var(--border);
+  }
+  .bsc-card.financial { background: #FFF8ED; border-color: #F5D9A0; }
+  .bsc-card.customer { background: #E3F2FD; border-color: #BBDEFB; }
+  .bsc-card.internal { background: var(--green-pale); border-color: #C5E3AD; }
+  .bsc-card.learning { background: #F3E5F5; border-color: #CE93D8; }
+  .bsc-card h4 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .bsc-card .focus { font-size: 0.82rem; color: var(--ink-mid); font-weight: 600; margin-bottom: 0.75rem; }
+  .bsc-card .kpis { list-style: none; }
+  .bsc-card .kpis li {
+    font-size: 0.8rem; color: var(--ink-light); padding: 0.2rem 0;
+    padding-left: 1rem; position: relative;
+  }
+  .bsc-card .kpis li::before { content: '▸'; position: absolute; left: 0; color: var(--green-mid); }
+
+  /* RECOMMENDATION BOX */
+  .rec-box {
+    background: var(--green-pale); border: 1px solid #B8DFA0;
+    border-radius: 14px; padding: 1.5rem; margin-top: 1.5rem;
+  }
+  .rec-box h4 {
+    font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--green-dark); margin-bottom: 0.6rem;
+  }
+  .rec-box p { font-size: 0.87rem; color: var(--ink-mid); line-height: 1.7; }
+
+  /* HIGHLIGHT STAT */
+  .highlight-row {
+    display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;
+  }
+  .highlight-stat {
+    background: var(--green-dark); color: white; border-radius: 14px;
+    padding: 1.5rem 2rem; flex: 1; min-width: 160px; text-align: center;
+  }
+  .highlight-stat .big {
+    font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700;
+    color: var(--gold-light); display: block;
+  }
+  .highlight-stat .small { font-size: 0.78rem; color: rgba(255,255,255,0.65); letter-spacing: 0.05em; }
+
+  /* CONCLUSION */
+  #conclusion {
+    background: linear-gradient(160deg, var(--green-dark), #1C4A10);
+    color: white;
+  }
+  #conclusion .section-title { color: var(--gold-light); }
+  #conclusion .section-desc { color: rgba(255,255,255,0.7); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 2.5rem 2rem; text-align: center;
+  }
+  footer p { font-size: 0.8rem; line-height: 1.7; }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px; height: 3px; background: var(--gold); border-radius: 2px; margin: 1.5rem 0;
+  }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+
+  /* QUOTE */
+  blockquote {
+    border-left: 4px solid var(--gold); padding: 1rem 1.5rem; margin: 1.5rem 0;
+    background: var(--gold-pale); border-radius: 0 12px 12px 0;
+    font-style: italic; color: var(--ink-mid); font-size: 0.95rem; line-height: 1.75;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid, .improved-vm, .two-col, .bsc-grid { grid-template-columns: 1fr; }
+    .forces-grid { grid-template-columns: 1fr; }
+    .force-card.center-force { grid-column: 1; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .bcg-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-stats { flex-wrap: wrap; justify-content: center; }
+    .hero-logo-text { font-size: 3rem; }
+    .logo-fa { font-size: 4rem; }
+    .report-number { font-size: 3rem; min-width: 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">SAG<span>FA</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">Overview</a></li>
+    <li><a href="#cr1">Vision</a></li>
+    <li><a href="#cr2">Internal</a></li>
+    <li><a href="#cr3">External</a></li>
+    <li><a href="#cr4">Strategies</a></li>
+    <li><a href="#cr5">Selection</a></li>
+    <li><a href="#cr6">Implementation</a></li>
+    <li><a href="#cr7">Resources</a></li>
+    <li><a href="#cr8">Evaluation</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">MGT 190-E Strategic Management · UP Tacloban · 2025–2026</div>
+  <div class="hero-logo-wrapper">
+    <div class="hero-logo-text"><span class="logo-sag">SAG</span><span class="logo-fa">FA</span></div>
+    <div class="hero-logo-sub">Sition Ansay General Farmers Association</div>
+  </div>
+  <h1>Capsule Strategic Management <em>Plan</em></h1>
+  <p class="hero-meta">
+    <strong>Blones · Capacite · Verunque</strong><br>
+    Division of Management · Final Requirement · May 2026
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="num">8</span><span class="lbl">Case Reports</span></div>
+    <div class="hero-stat"><span class="num">17</span><span class="lbl">Active Members</span></div>
+    <div class="hero-stat"><span class="num">2022</span><span class="lbl">Established</span></div>
+    <div class="hero-stat"><span class="num">2.76</span><span class="lbl">IFE Score</span></div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">Organization Overview</div>
+    <h2 class="section-title">Who is SAGFA?</h2>
+    <p class="section-desc">The Sitio Ansay General Farmers Association is a community-based farmers' association uniting smallholder farmers of Sitio Ansay and Brgy. Union in Caibiran, Biliran.</p>
+
+    <div class="about-grid">
+      <div>
+        <div class="about-card">
+          <h3>Brief History</h3>
+          <p>Officially established on <strong>January 10, 2022</strong>, SAGFA was formed to ensure farmers' needs were recognized and supported by the government. Individual farmers had previously struggled to access training programs, crop insurance, and financial assistance.</p>
+          <p style="margin-top:1rem;">The association started with no capital — members contributed a ₱50 membership fee and ₱20 monthly dues. Through cooperation, SAGFA built a "payag" (common facility) and began income-generating activities.</p>
+        </div>
+
+        <div class="timeline" style="margin-top:1.5rem;">
+          <div class="timeline-item">
+            <div class="year">Jan 2022</div>
+            <p>Association officially established with no initial capital. Members begin contributing membership fees and dues.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2022–2023</div>
+            <p>Received government support: 480-layer chickens, seeds, organic fertilizers, grass cutter, shredder, thresher, and a triwheel service vehicle.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">May 2024</div>
+            <p>Expanded into egg production through a grant from the AMIA (Adaptation and Mitigation Initiative in Agriculture) program. Vision & Mission updated to include egg production.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2026</div>
+            <p>17 active members continue to grow productivity and livelihoods through vegetable farming, root crops, poultry, and organic fertilizer production.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="cards-grid" style="grid-template-columns:1fr;">
+          <div class="card">
+            <div class="card-icon green">🌿</div>
+            <h4>Core Products</h4>
+            <p>Vegetables, root crops, eggs, and organic fertilizers — all produced sustainably for the local community.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon gold">🤝</div>
+            <h4>Cooperative Culture</h4>
+            <p>All members participate in decision-making through monthly meetings. Transparency in finances and shared responsibility define SAGFA's operations.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon green">🏛️</div>
+            <h4>Government Partnerships</h4>
+            <p>Key partnerships with the Department of Agriculture and the AMIA program provide equipment, training, seeds, and livelihood support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CR1 -->
+<section id="cr1" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">01</div>
+      <div>
+        <div class="section-label">Case Report 1</div>
+        <h2 class="section-title">Vision & Mission Analysis</h2>
+        <p class="section-desc">Evaluating SAGFA's guiding statements, identifying best practices in participatory governance, and proposing improved versions.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark); margin-bottom:1rem;">Current Statements</h3>
+    <div class="vm-box">
+      <h3>Current Vision</h3>
+      <p>"To be a progressive and sustainable association committed to enhancing the production of vegetables, root crops, and eggs, contributing to food security, improved livelihoods, and community development."</p>
+      <div style="margin-top:1.5rem;">
+        <h3>Current Mission</h3>
+        <ul class="mission-list">
+          <li>Strengthen the production of safe, nutritious, and high-quality vegetables, root crops, and eggs.</li>
+          <li>Equip members with knowledge, skills, and resources to improve productivity and efficiency.</li>
+          <li>Promote cooperation, innovation, and sustainability among members.</li>
+          <li>Support livelihood opportunities and economic growth within the community.</li>
+          <li>Contribute to a reliable and affordable food supply.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark); margin-bottom:0.75rem;">Analysis</h3>
+    <p style="color:var(--ink-mid); font-size:0.9rem; line-height:1.75; max-width:700px;">The vision is future-oriented and sustainability-focused, but slightly lengthy. The mission clearly identifies products and emphasizes cooperation, yet lacks a specific target market and measurable goals. Overall, strong alignment exists between statements and actual operations.</p>
+
+    <div class="improved-vm" style="margin-top:2rem;">
+      <div class="improved-card">
+        <h3>✦ Improved Vision</h3>
+        <p>"To be the local community's trusted source of safe, affordable, and sustainable agricultural products that strengthen food security and improve livelihoods among its members."</p>
+      </div>
+      <div class="improved-card gold-bg">
+        <h3>✦ Improved Mission (Key Additions)</h3>
+        <p>Explicitly names customers (local households, sari-sari stores, grocery departments), integrates technology (automated inventory, modern equipment), and adds financial sustainability as a goal — addressing all 9 David & David mission components.</p>
+      </div>
+    </div>
+
+    <div class="rec-box">
+      <h4>Best Practice Highlighted</h4>
+      <p>SAGFA uses <strong>participatory governance</strong> — all members attend monthly meetings, a secretary documents concerns and suggestions, and drafts are refined collectively until finalized. This inclusive approach strengthens commitment and ensures alignment with shared goals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CR2 -->
+<section id="cr2" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">02</div>
+      <div>
+        <div class="section-label">Case Report 2</div>
+        <h2 class="section-title">Internal Analysis</h2>
+        <p class="section-desc">Examining SAGFA's functional areas and producing the Internal Factor Evaluation (IFE) Matrix.</p>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon green">🏗️</div>
+        <h4>Management</h4>
+        <p>Planning through regular consultations; participatory leadership with officers guiding rather than directing; informal but effective control through meeting-based monitoring.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">📣</div>
+        <h4>Marketing</h4>
+        <p>Localized and relationship-driven. Products distributed within the community with no formal branding, promotion, or market segmentation. Relies on word-of-mouth and community trust.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">💰</div>
+        <h4>Finance</h4>
+        <p>Transparent and shared accountability through member meetings. Funded by membership fees, dues, and government grants. No structured accounting tools or forecasting.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">🔬</div>
+        <h4>Research & Development</h4>
+        <p>Largely adaptive — driven by external programs and practical experience. Egg production and organic fertilizer use were adopted through government support and training.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon green">💻</div>
+        <h4>Information Systems</h4>
+        <p>Manual and interpersonal. Communication through meetings; records maintained by a designated secretary. Lacks efficiency and real-time tracking capability.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">🌾</div>
+        <h4>Organizational Culture</h4>
+        <p>Grounded in cooperation, shared responsibility, and community commitment. Members contribute both resources and ideas. Transparency reinforces trust and cohesion.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark);">IFE Matrix</h3>
+
+    <table class="matrix-table">
+      <thead>
+        <tr><th>Key Internal Factor</th><th>Weight</th><th>Rating</th><th>Weighted Score</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="strength">Strong cooperative culture and unity</td><td class="score-cell">0.10</td><td class="score-cell">4</td><td class="score-cell">0.40</td></tr>
+        <tr><td class="strength">Participatory governance and decision-making</td><td class="score-cell">0.08</td><td class="score-cell">4</td><td class="score-cell">0.32</td></tr>
+        <tr><td class="strength">Transparent financial practices</td><td class="score-cell">0.07</td><td class="score-cell">3</td><td class="score-cell">0.21</td></tr>
+        <tr><td class="strength">Effective use of government resources</td><td class="score-cell">0.10</td><td class="score-cell">4</td><td class="score-cell">0.40</td></tr>
+        <tr><td class="strength">Alignment of operations with vision & mission</td><td class="score-cell">0.08</td><td class="score-cell">4</td><td class="score-cell">0.32</td></tr>
+        <tr><td class="strength">Strong local trust and customer relationships</td><td class="score-cell">0.07</td><td class="score-cell">3</td><td class="score-cell">0.21</td></tr>
+        <tr><td class="weakness">Lack of formal marketing strategy</td><td class="score-cell">0.10</td><td class="score-cell">2</td><td class="score-cell">0.20</td></tr>
+        <tr><td class="weakness">Informal accounting and financial planning</td><td class="score-cell">0.08</td><td class="score-cell">2</td><td class="score-cell">0.16</td></tr>
+        <tr><td class="weakness">Limited R&D capability</td><td class="score-cell">0.07</td><td class="score-cell">2</td><td class="score-cell">0.14</td></tr>
+        <tr><td class="weakness">Manual information system</td><td class="score-cell">0.10</td><td class="score-cell">1</td><td class="score-cell">0.10</td></tr>
+        <tr><td class="weakness">Limited management formalization</td><td class="score-cell">0.07</td><td class="score-cell">2</td><td class="score-cell">0.14</td></tr>
+        <tr><td class="weakness">Narrow market reach</td><td class="score-cell">0.08</td><td class="score-cell">2</td><td class="score-cell">0.16</td></tr>
+      </tbody>
+    </table>
+
+    <div class="score-badge">Total IFE Score: <strong>2.76</strong> — Slightly Above Average</div>
+  </div>
+</section>
+
+<!-- CR3 -->
+<section id="cr3" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">03</div>
+      <div>
+        <div class="section-label">Case Report 3</div>
+        <h2 class="section-title">External Audit</h2>
+        <p class="section-desc">Analyzing SAGFA's industry environment using Porter's Five Forces and producing the External Factor Evaluation (EFE) Matrix.</p>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark); margin-bottom:1rem;">Porter's Five Forces</h3>
+    <div class="forces-grid">
+      <div class="force-card">
+        <div class="force-level level-moderate">Moderate</div>
+        <h4>Competitive Rivalry</h4>
+        <p>Competition exists primarily among small-scale local farmers. Remains moderate due to the small market and essential nature of agricultural products.</p>
+      </div>
+      <div class="force-card center-force">
+        <div class="force-level" style="background:rgba(255,255,255,0.15);color:white;">SAGFA</div>
+        <h4>Agricultural Sector</h4>
+        <p>Community-based, social enterprise model with strong government support.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-level level-moderate">Moderate</div>
+        <h4>Bargaining Power of Buyers</h4>
+        <p>Buyers (local households, small retailers) have moderate power as they can switch suppliers based on price and availability.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-level level-low">Low–Moderate</div>
+        <h4>Bargaining Power of Suppliers</h4>
+        <p>Many inputs are sourced through government programs or are locally available, reducing dependence on any single supplier.</p>
+      </div>
+      <div class="force-card" style="grid-column:2;">
+        <div class="force-level level-low">Low</div>
+        <h4>Threat of Substitutes</h4>
+        <p>Basic food commodities (vegetables, eggs) have consistent demand and limited direct substitutes.</p>
+      </div>
+      <div class="force-card">
+        <div class="force-level level-moderate">Moderate</div>
+        <h4>Threat of New Entrants</h4>
+        <p>Low barriers to entry as small-scale farming doesn't require high capital, increasing likelihood of new entrants in the local community.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark);">EFE Matrix</h3>
+
+    <table class="matrix-table">
+      <thead>
+        <tr><th>Key External Factor</th><th>Weight</th><th>Rating</th><th>Weighted Score</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="strength">Government support (AMIA program, DA assistance, equipment)</td><td class="score-cell">0.18</td><td class="score-cell">4</td><td class="score-cell">0.72</td></tr>
+        <tr><td class="strength">Access to farming inputs (seeds, fertilizers, machinery)</td><td class="score-cell">0.12</td><td class="score-cell">4</td><td class="score-cell">0.48</td></tr>
+        <tr><td class="strength">Expansion into egg production project</td><td class="score-cell">0.10</td><td class="score-cell">4</td><td class="score-cell">0.40</td></tr>
+        <tr><td class="strength">Support for climate-resilient agriculture</td><td class="score-cell">0.10</td><td class="score-cell">3</td><td class="score-cell">0.30</td></tr>
+        <tr><td class="weakness">Climate change and environmental risks</td><td class="score-cell">0.15</td><td class="score-cell">2</td><td class="score-cell">0.30</td></tr>
+        <tr><td class="weakness">Limited access to broader markets</td><td class="score-cell">0.10</td><td class="score-cell">2</td><td class="score-cell">0.20</td></tr>
+        <tr><td class="weakness">Small membership base (17 members) limiting capacity</td><td class="score-cell">0.10</td><td class="score-cell">2</td><td class="score-cell">0.20</td></tr>
+        <tr><td class="weakness">Dependence on government support</td><td class="score-cell">0.08</td><td class="score-cell">2</td><td class="score-cell">0.16</td></tr>
+        <tr><td class="weakness">Lack of formal systems affecting competitiveness</td><td class="score-cell">0.07</td><td class="score-cell">2</td><td class="score-cell">0.14</td></tr>
+      </tbody>
+    </table>
+
+    <div class="score-badge">Total EFE Score: <strong>2.90</strong> — Moderately Responsive to External Environment</div>
+  </div>
+</section>
+
+<!-- CR4 -->
+<section id="cr4" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">04</div>
+      <div>
+        <div class="section-label">Case Report 4</div>
+        <h2 class="section-title">Documented Strategies</h2>
+        <p class="section-desc">Identifying SAGFA's strategic positioning, tactics, and current strategies being employed.</p>
+      </div>
+    </div>
+
+    <blockquote>SAGFA operates as a small, community-based, <strong>not-for-profit enterprise</strong> where success is measured through improved welfare, productivity, and community impact rather than financial gain.</blockquote>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <span class="tag">Integration</span>
+        <h4>Forward Integration</h4>
+        <p>SAGFA directly connects production to local markets, selling vegetables and eggs within the community — capturing more value along its supply chain and reducing dependence on intermediaries.</p>
+      </div>
+      <div class="strategy-card">
+        <span class="tag">Market</span>
+        <h4>Market Penetration + Product Development</h4>
+        <p>Strengthening presence in the local market while simultaneously expanding offerings through new initiatives like egg production from the AMIA program.</p>
+      </div>
+      <div class="strategy-card">
+        <span class="tag">Diversification</span>
+        <h4>Related Diversification</h4>
+        <p>Engaged in vegetable farming, root crop production, poultry, and organic fertilizer use — interconnected activities sharing common resources to spread risk.</p>
+      </div>
+      <div class="strategy-card">
+        <span class="tag">Porter's Generic</span>
+        <h4>Focused Cost Leadership</h4>
+        <p>Targeting a specific local market while maintaining affordability by minimizing costs and leveraging community labor for price-sensitive customers.</p>
+      </div>
+      <div class="strategy-card">
+        <span class="tag">Cooperation</span>
+        <h4>Strategic Partnerships</h4>
+        <p>Active engagement with government institutions providing funding, training, and equipment. These alliances enhance capabilities and reduce resource constraints.</p>
+      </div>
+      <div class="strategy-card">
+        <span class="tag">Approach</span>
+        <h4>Reactive–Adaptive</h4>
+        <p>Does not pursue first-mover strategy; instead responds to opportunities introduced by external institutions, especially government programs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CR5 -->
+<section id="cr5" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">05</div>
+      <div>
+        <div class="section-label">Case Report 5</div>
+        <h2 class="section-title">Strategy Selection</h2>
+        <p class="section-desc">Using SWOT, SPACE, BCG, IE, Grand Strategy Matrix, CPM, and QSPM to determine the optimal strategic direction for SAGFA.</p>
+      </div>
+    </div>
+
+    <!-- CPM -->
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">Competitive Profile Matrix (CPM)</h3>
+    <table class="matrix-table">
+      <thead>
+        <tr><th>Critical Success Factor</th><th>Weight</th><th>SAGFA Rating</th><th>SAGFA Score</th><th>Ind. Farmers Rating</th><th>Ind. Farmers Score</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Product Quality</td><td class="score-cell">0.20</td><td class="score-cell">4</td><td class="score-cell strength">0.80</td><td class="score-cell">3</td><td class="score-cell">0.60</td></tr>
+        <tr><td>Government Support</td><td class="score-cell">0.20</td><td class="score-cell">4</td><td class="score-cell strength">0.80</td><td class="score-cell">2</td><td class="score-cell">0.40</td></tr>
+        <tr><td>Market Reach</td><td class="score-cell">0.15</td><td class="score-cell">2</td><td class="score-cell weakness">0.30</td><td class="score-cell">3</td><td class="score-cell">0.45</td></tr>
+        <tr><td>Operational Efficiency</td><td class="score-cell">0.15</td><td class="score-cell">3</td><td class="score-cell">0.45</td><td class="score-cell">2</td><td class="score-cell">0.30</td></tr>
+        <tr><td>Innovation Capacity</td><td class="score-cell">0.15</td><td class="score-cell">2</td><td class="score-cell">0.30</td><td class="score-cell">2</td><td class="score-cell">0.30</td></tr>
+        <tr><td>Financial Stability</td><td class="score-cell">0.15</td><td class="score-cell">2</td><td class="score-cell">0.30</td><td class="score-cell">2</td><td class="score-cell">0.30</td></tr>
+        <tr style="font-weight:700; background:var(--green-pale);"><td><strong>Total</strong></td><td>1.00</td><td></td><td class="score-cell strength">2.95</td><td></td><td class="score-cell">2.35</td></tr>
+      </tbody>
+    </table>
+
+    <div class="divider"></div>
+
+    <!-- SWOT -->
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">SWOT Matrix</h3>
+    <div class="swot-grid">
+      <div class="swot-cell s-cell">
+        <h3>💪 Strengths</h3>
+        <ul>
+          <li>Strong community-based participation and collective labor system</li>
+          <li>Locally sourced raw materials ensuring stable supply</li>
+          <li>Social enterprise identity with strong cultural relevance</li>
+          <li>Effective use of government-provided resources</li>
+          <li>Transparent financial practices</li>
+        </ul>
+      </div>
+      <div class="swot-cell w-cell">
+        <h3>⚠️ Weaknesses</h3>
+        <ul>
+          <li>Limited capital and financial resources for expansion</li>
+          <li>Lack of advanced processing and storage technology</li>
+          <li>Dependence on manual labor and traditional methods</li>
+          <li>Informal accounting and financial planning</li>
+          <li>No formal marketing strategy or branding</li>
+        </ul>
+      </div>
+      <div class="swot-cell o-cell">
+        <h3>🌱 Opportunities</h3>
+        <ul>
+          <li>Growing demand for local, organic, culturally rooted products</li>
+          <li>Government and NGO support for social enterprises and MSMEs</li>
+          <li>Expansion through digital marketing and local tourism markets</li>
+          <li>Climate-resilient agriculture programs and resources</li>
+        </ul>
+      </div>
+      <div class="swot-cell t-cell">
+        <h3>⚡ Threats</h3>
+        <ul>
+          <li>Market competition from commercial, mass-produced goods</li>
+          <li>Supply and production instability due to climate/seasonal changes</li>
+          <li>Changing regulations or food safety requirements</li>
+          <li>Dependence on government support creating vulnerability</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SPACE -->
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">SPACE Matrix Result</h3>
+    <div class="highlight-row">
+      <div class="highlight-stat"><span class="big">+3.0</span><span class="small">Financial Position (FP)</span></div>
+      <div class="highlight-stat"><span class="big">-2.75</span><span class="small">Competitive Position (CP)</span></div>
+      <div class="highlight-stat"><span class="big">+4.0</span><span class="small">Industry Position (IP)</span></div>
+      <div class="highlight-stat"><span class="big">-3.0</span><span class="small">Stability Position (SP)</span></div>
+    </div>
+    <div style="margin-top:1rem; background:var(--green-pale); border-radius:14px; padding:1.5rem; border:1px solid #C5E3AD;">
+      <p style="font-size:0.9rem; color:var(--green-dark); font-weight:600;">Final Coordinate: (0.25, 1.0) → <strong>Aggressive Quadrant</strong></p>
+      <p style="font-size:0.85rem; color:var(--ink-mid); margin-top:0.4rem; line-height:1.7;">SAGFA demonstrates a slightly aggressive strategic position, driven by strong industry attractiveness (+4.0) and moderate financial strength (+3.0). Growth potential outweighs competitive pressure and environmental instability.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- BCG -->
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">BCG Matrix — Business Portfolio</h3>
+    <div class="bcg-grid">
+      <div class="bcg-cell star-cell">
+        <div class="bcg-icon">⭐</div>
+        <h4>STAR</h4>
+        <p><strong>Egg Production</strong> — High growth potential and high market share. Requires continued investment. Strong future driver.</p>
+      </div>
+      <div class="bcg-cell qm-cell">
+        <div class="bcg-icon">❓</div>
+        <h4>QUESTION MARK</h4>
+        <p><strong>Organic Fertilizer Production</strong> — High market growth but low share. Requires strategic evaluation and targeted support.</p>
+      </div>
+      <div class="bcg-cell cash-cell">
+        <div class="bcg-icon">🐄</div>
+        <h4>CASH COW</h4>
+        <p><strong>Vegetable Production</strong> — Stable growth and high market share. Generates reliable income for reinvestment in other ventures.</p>
+      </div>
+      <div class="bcg-cell dog-cell">
+        <div class="bcg-icon">—</div>
+        <h4>DOG</h4>
+        <p>No current business unit classified in this quadrant.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- IE + Grand -->
+    <div class="two-col">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:0.75rem;">IE Matrix Position</h3>
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:14px; padding:1.5rem;">
+          <p style="font-size:0.85rem; color:var(--ink-mid); line-height:1.7;"><strong>Cell V (Grow and Build)</strong> — With IFE 2.76 and EFE 2.90, SAGFA falls in the moderately strong internal/favorable external region. Recommended strategies: <strong>Market Development, Product Development, and Operational Improvement.</strong></p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:0.75rem;">Grand Strategy Matrix</h3>
+        <div style="background:var(--white); border:1px solid var(--border); border-radius:14px; padding:1.5rem;">
+          <p style="font-size:0.85rem; color:var(--ink-mid); line-height:1.7;"><strong>Quadrant I</strong> — Strong competitive position in a rapidly growing market. SAGFA is positioned for aggressive but manageable growth: expand market reach, adopt basic technologies, and strengthen institutional partnerships.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- QSPM -->
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">QSPM — Final Strategy Comparison</h3>
+    <table class="matrix-table">
+      <thead>
+        <tr><th>Key Factor</th><th>Weight</th><th>Market Dev. (AS)</th><th>Market Dev. (TAS)</th><th>MIS Adoption (AS)</th><th>MIS Adoption (TAS)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Government Support</td><td class="score-cell">0.20</td><td class="score-cell">4</td><td class="score-cell">0.80</td><td class="score-cell">3</td><td class="score-cell">0.60</td></tr>
+        <tr><td>Market Reach Limitation</td><td class="score-cell">0.15</td><td class="score-cell">4</td><td class="score-cell">0.60</td><td class="score-cell">2</td><td class="score-cell">0.30</td></tr>
+        <tr><td>Operational Efficiency</td><td class="score-cell">0.15</td><td class="score-cell">2</td><td class="score-cell">0.30</td><td class="score-cell">4</td><td class="score-cell">0.60</td></tr>
+        <tr><td>Dependence on Manual Systems</td><td class="score-cell">0.20</td><td class="score-cell">2</td><td class="score-cell">0.40</td><td class="score-cell">4</td><td class="score-cell">0.80</td></tr>
+        <tr><td>Financial Sustainability</td><td class="score-cell">0.30</td><td class="score-cell">3</td><td class="score-cell">0.90</td><td class="score-cell">3</td><td class="score-cell">0.90</td></tr>
+        <tr style="font-weight:700; background:var(--green-pale);"><td><strong>Total</strong></td><td>1.00</td><td></td><td class="score-cell">3.00</td><td></td><td class="score-cell strength">3.20 ✓</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rec-box">
+      <h4>Recommended Strategy</h4>
+      <p><strong>Digital Transformation through Basic MIS Implementation</strong> (TAS: 3.20), supported by gradual market development initiatives. MIS directly addresses internal inefficiencies and supports long-term strategic capability while building toward sustainable growth.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CR6 -->
+<section id="cr6" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">06</div>
+      <div>
+        <div class="section-label">Case Report 6</div>
+        <h2 class="section-title">Strategy Implementation</h2>
+        <p class="section-desc">Examining current implementation practices across functional areas and providing targeted recommendations.</p>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon gold">📣</div>
+        <h4>Marketing Issues</h4>
+        <p>Relies on word-of-mouth; no formal branding, packaging, or labeling. Products lack differentiation and the association has no structured promotion channels.</p>
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Recommendation</h4>
+          <p>Establish a Facebook page, introduce product labeling, and maintain consistent pricing and quality to enhance visibility and credibility cost-efficiently.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon green">💰</div>
+        <h4>Finance Issues</h4>
+        <p>Transparent but manual. Basic bookkeeping and cash tracking in meetings. No formal budgeting, forecasting, or performance metrics.</p>
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Recommendation</h4>
+          <p>Adopt spreadsheet-based accounting tools to track income, expenses, and cash flow. Introduce basic budgeting and periodic financial reviews.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon gold">🔬</div>
+        <h4>R&D Issues</h4>
+        <p>Experience-based and adaptive but not formally documented. Insights from trial-and-error may not be systematically shared or replicated.</p>
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Recommendation</h4>
+          <p>Begin documenting farming practices, experiments, and outcomes — production techniques, input usage, and yield results — to build a knowledge base.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon green">💻</div>
+        <h4>MIS Issues</h4>
+        <p>Manual records and verbal communication; insufficient for growth. No formal MIS results in delayed reporting and limited data accuracy.</p>
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Recommendation</h4>
+          <p>Implement a basic Excel-based MIS covering: inventory tracking, egg production monitoring, and sales/revenue recording.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CR7 -->
+<section id="cr7" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">07</div>
+      <div>
+        <div class="section-label">Case Report 7</div>
+        <h2 class="section-title">Policies & Resource Allocation</h2>
+        <p class="section-desc">Documenting current policies, resource allocation, organizational structure, and operational/HR issues to support strategy execution.</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">Annual Objectives</h3>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">📈 Increasing vegetable and egg production</li>
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">💵 Improving member income and productivity</li>
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">🏛️ Maintaining access to government support programs</li>
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">🤝 Sustaining cooperative participation among members</li>
+        </ul>
+
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin:1.5rem 0 0.75rem;">Current Policies</h3>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">⚖️ Equal participation in decision-making</li>
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">🔍 Transparent handling of funds and resources</li>
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">🌾 Shared responsibility in project implementation</li>
+          <li style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;font-size:0.85rem;color:var(--ink-mid);">🎁 Fair distribution of benefits among members</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:1rem;">Resource Allocation</h3>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Financial Resources</h4>
+          <p style="font-size:0.85rem; color:var(--ink-light); margin-top:0.4rem;">Membership fees, monthly dues, and government grants. Decisions made collectively during meetings based on immediate operational needs.</p>
+        </div>
+        <div class="card" style="margin-bottom:1rem;">
+          <h4>Physical Resources</h4>
+          <p style="font-size:0.85rem; color:var(--ink-light); margin-top:0.4rem;">Machinery, livestock (480 layers), payag facility, grass cutter, shredder, thresher, and triwheel service vehicle.</p>
+        </div>
+        <div class="card">
+          <h4>Human Resources</h4>
+          <p style="font-size:0.85rem; color:var(--ink-light); margin-top:0.4rem;">17 active members acting as owners, workers, and decision-makers simultaneously. Strong commitment but limited specialization.</p>
+        </div>
+
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Key Recommendations</h4>
+          <p>Develop basic written policies for financial management and production responsibilities. Introduce clear role definitions (finance officer, operations coordinator). Adopt structured resource allocation linked to strategic priorities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CR8 -->
+<section id="cr8" class="report-section">
+  <div class="container">
+    <div class="report-header">
+      <div class="report-number">08</div>
+      <div>
+        <div class="section-label">Case Report 8</div>
+        <h2 class="section-title">Strategy Evaluation</h2>
+        <p class="section-desc">Documenting SAGFA's evaluation practices, auditing activities, contingency planning, and recommending a Balanced Scorecard framework.</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:0.75rem;">Current Evaluation Practices</h3>
+        <p style="font-size:0.9rem; color:var(--ink-mid); line-height:1.75;">Evaluation is informal, participatory, and discussion-based. Monitoring occurs during regular meetings where members review activities and assess outcomes collectively. Criteria are largely qualitative: production improvement, member participation, effective resource use, and operational continuity.</p>
+
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Issue</h4>
+          <p>No formal performance indicators or quantitative benchmarks. Depends heavily on perception and experience rather than systematic measurement.</p>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--green-dark); margin-bottom:0.75rem;">Contingency Planning</h3>
+        <p style="font-size:0.9rem; color:var(--ink-mid); line-height:1.75;">SAGFA's approach is largely reactive. Challenges are addressed through collective problem-solving and external support. No formal contingency plans increase vulnerability to climate change, market fluctuations, and resource dependency.</p>
+
+        <div class="rec-box" style="margin-top:1rem;">
+          <h4>Recommendation</h4>
+          <p>Develop basic contingency plans for: climate-related risks (crop diversification), financial risks (emergency funds), and operational disruptions (backup production plans).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--green-dark); margin-bottom:1rem;">Proposed Balanced Scorecard for SAGFA</h3>
+    <div class="bsc-grid">
+      <div class="bsc-card financial">
+        <h4>💰 Financial Perspective</h4>
+        <p class="focus">Focus: High-yield agri-product income & cost control</p>
+        <ul class="kpis">
+          <li>Revenue from agri-products</li>
+          <li>Operational cost ratio</li>
+          <li>Net profit margin</li>
+        </ul>
+      </div>
+      <div class="bsc-card customer">
+        <h4>👥 Customer/Market Perspective</h4>
+        <p class="focus">Focus: Regional satisfaction & expanded reach</p>
+        <ul class="kpis">
+          <li>Customer trust survey score</li>
+          <li>New regional market share</li>
+          <li>Regional customer satisfaction index</li>
+        </ul>
+      </div>
+      <div class="bsc-card internal">
+        <h4>⚙️ Internal Process Perspective</h4>
+        <p class="focus">Focus: Scalable production & efficient resource control</p>
+        <ul class="kpis">
+          <li>Production efficiency rate</li>
+          <li>Inventory accuracy</li>
+          <li>Processing time per unit</li>
+        </ul>
+      </div>
+      <div class="bsc-card learning">
+        <h4>🌱 Learning & Growth Perspective</h4>
+        <p class="focus">Focus: Member capability build & leader-participation culture</p>
+        <ul class="kpis">
+          <li>Skill assessment score increase</li>
+          <li>Member participation rate</li>
+          <li>Internal leadership pipeline strength</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <div class="container">
+    <div class="section-label" style="color:var(--gold-light);">Overall Conclusion</div>
+    <h2 class="section-title">Strategic Outlook for SAGFA</h2>
+    <p class="section-desc">Eight case reports examined SAGFA from vision to evaluation, revealing a resilient grassroots enterprise with strong cooperative foundations and clear growth potential.</p>
+
+    <div class="highlight-row" style="margin-top:2.5rem;">
+      <div class="highlight-stat"><span class="big">2.76</span><span class="small">IFE Score</span></div>
+      <div class="highlight-stat"><span class="big">2.90</span><span class="small">EFE Score</span></div>
+      <div class="highlight-stat"><span class="big">2.95</span><span class="small">CPM Score</span></div>
+      <div class="highlight-stat"><span class="big">Q-I</span><span class="small">Grand Strategy</span></div>
+    </div>
+
+    <div class="cards-grid" style="margin-top:2.5rem;">
+      <div class="card" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.12);">
+        <div class="card-icon green" style="background:rgba(255,255,255,0.12);">✅</div>
+        <h4 style="color:white;">Core Strengths</h4>
+        <p style="color:rgba(255,255,255,0.7);">Strong cooperative culture, participatory governance, effective use of government resources, and deep community trust form SAGFA's durable foundation.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.12);">
+        <div class="card-icon gold" style="background:rgba(255,255,255,0.12);">🎯</div>
+        <h4 style="color:white;">Priority Strategy</h4>
+        <p style="color:rgba(255,255,255,0.7);">Basic MIS Implementation (QSPM: 3.20) combined with gradual market development addresses core weaknesses while leveraging existing strengths and opportunities.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.12);">
+        <div class="card-icon green" style="background:rgba(255,255,255,0.12);">🚀</div>
+        <h4 style="color:white;">Path Forward</h4>
+        <p style="color:rgba(255,255,255,0.7);">Formalize systems, expand market reach, adopt technology tools, and strengthen institutional partnerships — while preserving the participatory culture that defines SAGFA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>Sitio Ansay General Farmers Association (SAGFA)</strong><br>
+    Sitio Ansay, Brgy. Union, Caibiran, Biliran · Established January 10, 2022<br><br>
+    Case Report prepared by <strong>Rhea Loreine Blones · Keiszl Damhanni Capacite · Harley Verunque</strong><br>
+    MGT 190-E Strategic Management · University of the Philippines Tacloban College · May 2026<br>
+    Under the supervision of Asst. Prof. Blesilda P. Badoc-Gonzales
+  </p>
+</footer>
+
+</body>
+</html>
